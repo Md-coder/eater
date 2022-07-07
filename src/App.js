@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/assets/Navbar';
 
+import Footer from './components/assets/Footer';
+import Home from './pages/Home';
+import { EaterProvider } from './components/context/EaterContex';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Food from './pages/Food';
+import NotFound from './components/assets/NotFound';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <EaterProvider>
+      <div className='App h-screen flex flex-col justify-between'>
+        <Router>
+          <Navbar />
+          <main className=' container mx-auto'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/food/:title' element={<Food />} />
+              <Route path='/notFound' element={<NotFound />} />
+              <Route path='/*' element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </Router>
+      </div>
+    </EaterProvider>
   );
 }
 
