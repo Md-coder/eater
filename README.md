@@ -1,3 +1,7 @@
+## About Eater app
+This app was designed to help users search for food and get the ingredients and procedures to prepare it.
+https://eater-app.vercel.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
